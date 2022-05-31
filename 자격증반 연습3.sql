@@ -63,7 +63,13 @@ SELECT	ENAME,
   FROM	emp
  WHERE 	DEPTNO = 30 AND SAL < 2000 AND HIREDATE < '81/05/01';
 
-
+-- emp테이블에서 급여가 2000 과 5000 사이고 부서번호가 10 또는 30인 사원의
+-- 이름과 급여, 부서번호를 나열하시오.
+SELECT	ENAME,
+		SAL,
+        DEPTNO
+  FROM 	emp
+ WHERE  (SAL BETWEEN 2000 AND 5000) AND DEPTNO = 10; 
 
 
 
