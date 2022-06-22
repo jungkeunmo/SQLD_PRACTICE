@@ -1,10 +1,13 @@
 -- practice라는 데이터베이스 생성 (데이터베이스 이름은 단수로)
+
 CREATE DATABASE practice;
 
 -- 생성된 데이터베이스에 접근한다.
+
 USE practice;
 
 -- 테이블 생성
+
 CREATE TABLE practice (
 	id			INT			NOT NULL	AUTO_INCREMENT		PRIMARY KEY,
     nick		VARCHAR(35)	NOT NULL,
@@ -18,6 +21,7 @@ DROP TABLE practice;
 COMMIT;
 
 -- 데이터 추가하기
+
 INSERT INTO practice 
 	(nick, gender, birth, loc, genre) 
 VALUES 
@@ -43,9 +47,11 @@ INSERT INTO practice (
 );
     
 -- 데이터를 조회한다.
+
 SELECT * FROM practice; 
 
 --  practice 테이블안에 id, nick, genre가 "불타입" 인것만 조회하기.
+
 SELECT 	id, 
 		nick,
 		genre
@@ -53,6 +59,7 @@ SELECT 	id,
  WHERE 	genre = "불타입"; 
 
 -- practice 테이블안에 id, nick, gender가 "수컷" 인것만 조회하기. 
+
 SELECT	id,
 		nick,
         gender
@@ -60,6 +67,7 @@ SELECT	id,
  WHERE 	gender = "수컷";
  
 --  practice 테이블안에 id, nick, gender가 "수컷" 이고 genre가 "불타입" 인것만 조회하기.
+
 SELECT	id,
 		nick,
         gender,
