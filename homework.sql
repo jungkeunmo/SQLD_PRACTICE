@@ -1,5 +1,12 @@
 USE scott;
 
+show tables;
+
+SELECT * FROM EMP;
+SELECT * FROM DEPT;
+SELECT * FROM BOUNS;
+SELECT * FROM SALGRADE;
+
 SELECT 	ENAME
   FROM	EMP
  ORDER	BY	ENAME DESC;
@@ -28,14 +35,42 @@ SELECT	E.ENAME,
 
 -- 커미션을 받고 급여가 1,600이상인 사원의 사원이름,부서명,근무지를 출력하시오
 
-
-
+SELECT	E.ENAME,
+		D.DNAME,
+        D.LOC,
+        E.COMM,
+        E.SAL
+  FROM	EMP		E
+ INNER	
+  JOIN	DEPT	D 
+    ON	E.DEPTNO = D.DEPTNO
+ WHERE	SAL > 1600;
+ 
 -- 근무지가 CHICAGO인 모든 사원의 이름,업무,부서번호 및 부서이름을 표시하시오.
 
+SELECT	E.ENAME,
+		E.JOB,
+		E.DEPTNO
+  FROM	EMP		E
+ INNER
+  JOIN	DEPT	D
+    ON	E.DEPTNO = D.DEPTNO
+ WHERE  D.LOC	= "CHICAGO";
+	
 -- 근무지별로 근무하는 사원의 수가 5명 이하인 경우, 인원이 적은 도시순으로 정렬하시오.(근무 인원이 0명인 곳도 표시)
+
+
 
 -- 사원의 이름 및 사원 번호를 관리자의 이름과 관리자 번호와 함께 표시하고 
 -- 각각의 열 레이블은 employee, emp#, manager, mgr#로 지정하시오.
+
+SELECT	E.ENAME "employee",
+		E.EMPNO "emp#",
+		M.ENAME "manager",
+        M.EMPNO "mgr#"
+  FROM	EMP		E, EMP		M
+ WHERE	E.MGR = M.EMPNO; 
+	
 
 -- 관리자보다 먼저 입사한 모든 사원의 이름 및 입사일을 관리자의 이름 및 입사일과 
 -- 함께 표시하고 열 레이블을 각각 employee, emp hired, manager, mgr hired로 지정
