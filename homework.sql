@@ -85,6 +85,14 @@ SELECT	E.ENAME "employee",
 
 -- 10번부서에서 근무하는 사원들의 부서번호, 부서이름, 사원이름, 월급, 급여등급을 출력하시오.
 
+SELECT	E.DEPTNO,
+		D.DNAME,
+        E.ENAME,
+        E.SAL,
+        S.GRADE
+  FROM	EMP			E, DEPT		D,SALGRADE		S
+ WHERE	E.DEPTNO = D.DEPTNO
+   AND	E.DEPTNO = 10;
 
 
 
