@@ -75,6 +75,14 @@ SELECT	E.ENAME "employee",
 -- 관리자보다 먼저 입사한 모든 사원의 이름 및 입사일을 관리자의 이름 및 입사일과 
 -- 함께 표시하고 열 레이블을 각각 employee, emp hired, manager, mgr hired로 지정
 
+SELECT	E.ENAME,
+		E.HIREDATE,
+        M.ENAME,
+        M.HIREDATE
+  FROM	EMP		E,EMP  	  M
+ WHERE	E.MGR = M.EMPNO
+   AND	E.HIREDATE < M.HIREDATE;
+	
 -- 사원의 이름 및 사원번호를 관리자의 이름과 관리자 번호와 함께 표시하고 각각의 열 
 -- 레이블은 employee, emp#, manager, mgr#로 지정하는데 King을 포함하여 관리자가 
 -- 없는 모든 사원을 표시하도록 하고 결과를 사원번호를 기준으로 정렬
