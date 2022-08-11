@@ -192,10 +192,20 @@ SELECt	EMPNO,
 
 -- 부서별 최소급여가 20번 부서의 최소급여보다 작은 부서의 부서번호, 최소 급여 추출
 
-SELECT	
+SELECT	DEPTNO,	
+		MIN(SAL)
   FROM	EMP
+ GROUP	BY	DEPTNO
+HAVING	MIN(SAL) > (
+		SELECT	MIN(SAL)
+          FROM	EMP
+         WHERE	DEPTNO = 20 
+);
 
 -- 업무별 급여 평균 중 가장 작은 급여평균의 업무와 급여평균 추출
+
+SELECT	
+  FROM	EMP
 
 -- 업무별 최대 급여를 받는 사원의 사원번호, 이름, 업무, 입사일, 급여, 부서번호 추출
 
