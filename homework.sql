@@ -75,10 +75,10 @@ SELECT	E.ENAME "employee",
 -- 관리자보다 먼저 입사한 모든 사원의 이름 및 입사일을 관리자의 이름 및 입사일과 
 -- 함께 표시하고 열 레이블을 각각 employee, emp hired, manager, mgr hired로 지정
 
-SELECT	E.ENAME,
-		E.HIREDATE,
-        M.ENAME,
-        M.HIREDATE
+SELECT	E.ENAME	"EMPLOYEE",
+		E.HIREDATE "EMP HIRED",
+        M.ENAME "MANAGER",
+        M.HIREDATE "MGR HIRED"
   FROM	EMP		E,EMP  	  M
  WHERE	E.MGR = M.EMPNO
    AND	E.HIREDATE < M.HIREDATE;
@@ -87,9 +87,29 @@ SELECT	E.ENAME,
 -- 레이블은 employee, emp#, manager, mgr#로 지정하는데 King을 포함하여 관리자가 
 -- 없는 모든 사원을 표시하도록 하고 결과를 사원번호를 기준으로 정렬
 
+SELECT	E.ENAME	"EMPLOYEE",
+		E.EMPNO "EMP#",
+        M.ENAME "MANAGER",
+        M.EMPNO	"MGR#"
+  FROM	EMP		E,EMP	  M
+ WHERE	E.MGR = M.EMPNO
+ ORDER	BY	E.EMPNO;
+   
+
 -- 지정한 부서번호, 사원이름 및 지정한 사원과 동일한 부서에서 근무하는 모든 사원을
 -- 표시하도록 질의를 작성하고 부서번호는 department, 사원이름은 employee, 동일한
 -- 부서에서 근무하는 사원은 colleague로 표시하시오.(부서번호, 사원이름,동료 순으로 오름차순 정렬)
+
+SELECT	E.DEPTNO "DEPARTMENT",
+		E.ENAME "EMPLOYEE",
+        D.
+        
+  FROM	EMP		E, EMP		M
+ INNER
+  JOIN	DEPT	D
+    ON	E.DEPTNO = D.DEPTNO
+ WHERE	  
+    
 
 -- 10번부서에서 근무하는 사원들의 부서번호, 부서이름, 사원이름, 월급, 급여등급을 출력하시오.
 
