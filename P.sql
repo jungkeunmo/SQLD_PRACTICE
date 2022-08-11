@@ -204,10 +204,25 @@ HAVING	MIN(SAL) > (
 
 -- 업무별 급여 평균 중 가장 작은 급여평균의 업무와 급여평균 추출
 
-SELECT	
+SELECT	JOB,
+		AVG(SAL)
   FROM	EMP
+ GROUP 	BY	JOB
+HAVING	AVG(SAL) = (
+	SELECT	MIN(AVG(SAL))
+	  FROM	EMP
+     GROUP	BY	JOB 
+); 
 
 -- 업무별 최대 급여를 받는 사원의 사원번호, 이름, 업무, 입사일, 급여, 부서번호 추출
+
+SELECT	EMPNO,
+		ENAME,
+		JOB,
+        HIREDATE,
+        SAL,
+        DEPTNO
+  FROM	EMP;
 
 -- 30번 부서의 최소급여를 받는 사원보다 많은 급여를 받는 사원의 사원번호, 이름, 업무, 입사일, 급여, 부서번호, 단 30번 부서는 제외하고 추출
 
